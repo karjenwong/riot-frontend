@@ -1,29 +1,49 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import CardColumns from "react-bootstrap/CardColumns";
 
-function Champion({ info }) {
-  let [obj, strings] = [[], []];
-  Object.keys(info).map((x) =>
-    typeof info[x] == "string" ? strings.push(x) : obj.push(x)
+import Card1 from "./Card1";
+import Card2 from "./Card2";
+import Card3 from "./Card3";
+
+function Champion(props) {
+  if (props.info.name == "Error") return <div>Invalid Name</div>;
+  let {
+    name,
+    title,
+    image,
+    skins,
+    lore,
+    allytips,
+    enemytips,
+    tags,
+    partype,
+    info,
+    stats,
+    spells,
+    passive,
+    recommended,
+  } = props.info;
+
+  let strings = (
+    <>
+      <div>
+        <Card1 value={["Title", title]} />
+        <Card1 value={["Name", name]} />
+      </div>
+      <div>
+        <Card3 value={["Stats Level 1-18", stats]} level={props.level} setLevel={props.setLevel}/>
+      </div>
+      <div>
+        <Card2 value={["Ally Tips", allytips]} />
+        <Card2 value={["Enemy Tips", enemytips]} />
+        <Card1 value={["Lore", lore]} />
+      </div>
+    </>
   );
-
-  strings = strings.map((x, i) => {
-    return (
-      <Card style={{ width: "18rem" }} key={i}>
-        <Card.Body>
-          <Card.Title>{x}</Card.Title>
-          <Card.Text>{info[x]}</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-    );
-  });
 
   return (
     <div className="champion">
-      <h1>Champ</h1>
-      <div className="flex">{strings}</div>
+      <div className="flex flex-col">{strings}</div>
     </div>
   );
 }
