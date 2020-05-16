@@ -1,16 +1,32 @@
 .main {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .flex {
-  display:flex;
+  display: flex;
 }
-.flex-col{
+.flex-col {
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.sameHeight{
-  height:38rem;
+.sameHeight {
+  height: 38rem;
+}
+.filterlist {
+  position: absolute;
+  z-index: 20;
+  background: white;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.filterItem {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  list-style: none;
+  padding-right: 1rem;
+}
+.search {
+  width: 100%;
 }

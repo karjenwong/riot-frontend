@@ -25,7 +25,7 @@ function Card3({ value }) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         {perlevel}
-        <ListGroup.Item>Attack Speed: {attackrange}</ListGroup.Item>
+        <ListGroup.Item>Attack Range: {attackrange}</ListGroup.Item>
         <ListGroup.Item>Movement Speed: {movespeed}</ListGroup.Item>
       </Card.Body>
     </Card>

@@ -1,12 +1,11 @@
 import React from "react";
-import CardColumns from "react-bootstrap/CardColumns";
 
 import Card1 from "./Card1";
 import Card2 from "./Card2";
 import Card3 from "./Card3";
 
 function Champion(props) {
-  if (props.info.name == "Error") return <div>Invalid Name</div>;
+  if (props.info.name === "Error") return <div>Invalid Name</div>;
   let {
     name,
     title,
@@ -24,6 +23,8 @@ function Champion(props) {
     recommended,
   } = props.info;
 
+
+  console.log(passive)
   let strings = (
     <>
       <div>
@@ -38,6 +39,7 @@ function Champion(props) {
         <Card2 value={["Enemy Tips", enemytips]} />
         <Card1 value={["Lore", lore]} />
       </div>
+      
     </>
   );
 
