@@ -48,6 +48,7 @@ function ChampionSearch({ level, setLevel }) {
       .then(({ data }) => setChampions(data))
       .catch((error) => console.log(error));
   }
+
   let filterList = (champlist || []).map((x, i) => (
     <li key={i} className="filterItem" onClick={(e) => onSubmit(x)}>
       {x}
@@ -77,7 +78,7 @@ function ChampionSearch({ level, setLevel }) {
         <div className="search">
           {search}
           <div className="filterlist">
-            <ul>{filterList}</ul>
+            <ul className={`listHeight ${champlist.length?"": "none"}`}>{filterList}</ul>
           </div>
         </div>
 

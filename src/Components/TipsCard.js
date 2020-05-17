@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
-function Card2({ value }) {
+function TipsCard({ value }) {
   let [title, list] = value;
   list = list.map((x, i) => <ListGroup.Item key={i}>{x}</ListGroup.Item>);
   return (
@@ -15,4 +15,4 @@ function Card2({ value }) {
   );
 }
 
-export default Card2;
+export default TipsCard;

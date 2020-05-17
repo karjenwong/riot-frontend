@@ -4,7 +4,10 @@
 }
 
 .flex {
-  display: flex;
+  display: flex !important;
+}
+.space-between {
+  justify-content: space-between;
 }
 .flex-col {
   flex-direction: column;
@@ -26,7 +29,18 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   list-style: none;
   padding-right: 1rem;
+  width: 200px;
 }
 .search {
   width: 100%;
+}
+.listHeight {
+  max-height: 300px;
+}
+
+.none {
+  display: none;
+}
+.width-auto {
+  width: auto !important;
 }
