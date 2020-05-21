@@ -3,6 +3,7 @@ import React from "react";
 import ProfileCard from "./ProfileCard";
 import TipsCard from "./TipsCard";
 import StatsCard from "./StatsCard";
+import LoreCard from "./LoreCard";
 
 function Champion(props) {
   if (props.info.name === "Error") return <div>Invalid Name</div>;
@@ -23,7 +24,7 @@ function Champion(props) {
       <div>
         <TipsCard value={["Ally Tips", allytips]} />
         <TipsCard value={["Enemy Tips", enemytips]} />
-        <ProfileCard value={["Lore", lore]} />
+        <LoreCard value={["Lore", lore]} />
       </div>
     </>
   );

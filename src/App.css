@@ -44,3 +44,6 @@
 .width-auto {
   width: auto !important;
 }
+.space-bottom{
+  margin-bottom: 1rem;
+}

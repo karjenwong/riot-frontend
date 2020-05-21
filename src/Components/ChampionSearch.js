@@ -6,7 +6,10 @@ import Champion from "./Champion";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-function ChampionSearch({ level, setLevel }) {
+const url =
+  "http://ec2-34-217-208-140.us-west-2.compute.amazonaws.com:8080/riot";
+
+function ChampionSearch(props) {
   const [info, setinfo] = useState(null);
   const [name, setName] = useState("");
   const [valid, setValid] = useState(true);
@@ -18,7 +21,7 @@ function ChampionSearch({ level, setLevel }) {
       x.toLowerCase().includes(name.toLowerCase())
     );
     axios
-      .post("http://localhost:8080/riot/champions", {
+      .post(`${url}/champions`, {
         name: champions.includes(e) ? e : closestChampName,
       })
       .then(({ data }) => {
@@ -44,7 +47,7 @@ function ChampionSearch({ level, setLevel }) {
 
   if (!champions.length) {
     axios
-      .post("http://localhost:8080/riot/championslist", { name: "filler" })
+      .post(`${url}/championslist`, { name: "filler" })
       .then(({ data }) => setChampions(data))
       .catch((error) => console.log(error));
   }
@@ -54,12 +57,13 @@ function ChampionSearch({ level, setLevel }) {
       {x}
     </li>
   ));
+
   const search = (
     <div>
       <Form.Group className="flex">
         <Form.Control
           type="text"
-          placeholder="Enter Champion Name"
+          placeholder="Eg. Aatrox"
           onChange={onTyping}
           onKeyPress={press}
           value={name}
@@ -78,11 +82,13 @@ function ChampionSearch({ level, setLevel }) {
         <div className="search">
           {search}
           <div className="filterlist">
-            <ul className={`listHeight ${champlist.length?"": "none"}`}>{filterList}</ul>
+            <ul className={`listHeight ${champlist.length ? "" : "none"}`}>
+              {filterList}
+            </ul>
           </div>
         </div>
 
-        {info ? <Champion info={info} level={level} setLevel={setLevel} /> : ""}
+        {info && <Champion info={info} />}
       </div>
     </section>
   );

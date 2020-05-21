@@ -1,16 +1,26 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 import ChampionSearch from "./Components/ChampionSearch";
 
 function App() {
-  let[level, setLevel]= useState(1)
+  const [numberOfChampions, setNumberOfChampions] = useState([]);
+  const [id, setId] = useState(0);
+  const [filter, setFilter] = useState([]);
+
+  const add = () => {
+    const temp = [...numberOfChampions, <ChampionSearch uid={id} />];
+    setNumberOfChampions(temp);
+    setId(id + 1);
+  };
+
   return (
-    <div className="main">
-      <ChampionSearch level={level} setLevel={setLevel}/>
-      <ChampionSearch level={level} setLevel={setLevel}/>
-    </div>
+    <>
+      <Button onClick={add}>+</Button>
+      <div className="main">{numberOfChampions}</div>
+    </>
   );
 }
 
