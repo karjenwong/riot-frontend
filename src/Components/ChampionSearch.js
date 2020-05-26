@@ -5,9 +5,8 @@ import Champion from "./Champion";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
-const url =
-  "http://ec2-34-217-208-140.us-west-2.compute.amazonaws.com:8080/riot";
+//my server for riot
+const url = "http://ec2-34-217-208-140.us-west-2.compute.amazonaws.com:8080/riot";
 
 function ChampionSearch(props) {
   const [info, setinfo] = useState(null);
